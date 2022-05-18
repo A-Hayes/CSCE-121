@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;QuadEqSolver/QuadEqSolver&apos; to &apos;QuadEqSolver.cpp&apos;" description="Rename resource &apos;QuadEqSolver&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="QuadEqSolver" name="QuadEqSolver.cpp" stamp="1496983570700" updateReferences="true"/>
+</session>

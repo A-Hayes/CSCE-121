@@ -1,0 +1,7 @@
+22:46:34 **** Incremental Build of configuration Debug for project QuadraticEquationSolver ****
+Info: Internal Builder is used for build
+g++ -o QuadraticEquationSolver.exe QuadraticEquationSolver.o 
+g++: error: QuadraticEquationSolver.o: No such file or directory
+
+22:46:34 Build Finished (took 70ms)
+

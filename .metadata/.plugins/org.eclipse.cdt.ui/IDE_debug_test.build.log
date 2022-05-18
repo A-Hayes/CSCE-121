@@ -1,0 +1,7 @@
+19:42:05 **** Incremental Build of configuration Debug for project IDE_debug_test ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Craps.o "..\\Craps.cpp" 
+g++ -o IDE_debug_test.exe Craps.o 
+
+19:42:06 Build Finished (took 1s.207ms)
+

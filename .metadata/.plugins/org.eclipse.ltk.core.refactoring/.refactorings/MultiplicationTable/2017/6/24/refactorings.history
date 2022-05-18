@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MultiplicationTable/test_case.txt&apos; to &apos;test_cases.txt&apos;" description="Rename resource &apos;test_case.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test_case.txt" name="test_cases.txt" stamp="1497292468270" updateReferences="true"/>
+</session>

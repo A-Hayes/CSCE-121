@@ -1,0 +1,189 @@
+/*
+ * MountainPathP1.cpp
+ *
+ *  Created on: Jun 23, 2017
+ *      Author: A
+ */
+
+
+#include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
+#include <vector>
+
+#define DEBUG
+
+using namespace std;
+
+/**
+	Transforms a 2D vector to a 1D vector
+
+	https://stackoverflow.com/a/38875721
+*/
+template<typename T>
+vector<T> flatten( const vector<vector<T>> &orig ) {
+	vector<T> ret;
+
+	for ( const auto &v: orig ) {
+		ret.insert( ret.end(), v.begin(), v.end() );
+	}
+
+	return ret;
+}
+
+/**
+	Computes the value of gray for a cell on the height map
+*/
+int calculate_gray( int elevation, int min_elevation, int max_elevation ) {
+	return (int)( ( (float)( elevation - min_elevation ) / ( max_elevation - min_elevation ) ) * 255.0f );
+}
+
+/**
+	Application entry point
+*/
+int main( void ) {
+	// Get user input -- number of rows (image height)
+	cout << "Please input the number of rows: ";
+	int rows = 0;
+	while ( !( cin >> rows ) ) {
+		cin.clear();
+		cin.ignore( numeric_limits<streamsize>::max(), '\n' );
+		cout << "Error: Invalid input." << endl;
+		cout << "Please input the number of rows: ";
+	}
+
+#ifdef DEBUG
+	cout << "Rows: " << rows << endl;
+#endif
+
+	// Get user input -- number of columns (image width)
+	cout << "Please input the number of columns: ";
+	int columns = 0;
+	while( !( cin >> columns ) ) {
+		cin.clear();
+		cin.ignore( numeric_limits<streamsize>::max(), '\n' );
+		cout << "Error: Invalid input." << endl;
+		cout << "Please input the number of columns: ";
+	}
+
+#ifdef DEBUG
+	cout << "Columns: " << columns << endl;
+#endif
+
+	// Get user input -- name of file
+	cout << "Please input the file name: ";
+	string file_name = "";
+	while( !( cin >> file_name ) ) {
+		cin.clear();
+		cin.ignore( numeric_limits<streamsize>::max(), '\n' );
+		cout << "Error: Invalid input." << endl;
+		cout << "Please input the file name: ";
+	}
+
+#ifdef DEBUG
+	cout << "File Name: " << file_name << endl;
+#endif
+
+	// Read data from file
+	vector<vector<int>> height_map;
+
+	string line = "";
+	ifstream file( file_name.c_str() );
+	if ( file.is_open() ) {	/* File found */
+		// Read contents of file
+		while ( getline( file, line ) ) {
+			istringstream iss(line);
+			string token;
+			vector<string> tokens;
+			while ( getline( iss, token, ' ' ) ) {
+				tokens.push_back( token );
+			}
+
+			int index = 0;
+			for ( int c = 0; c < columns; ++c ) {
+				vector<int> temp_row;
+				for ( int r = 0; r < rows; ++r ) {
+					temp_row.push_back( stoi( tokens[index] ) );
+					index++;
+				}
+				height_map.push_back( temp_row );
+			}
+		}
+
+		// Close the file handle
+		file.close();
+	} else {	/* File not found */
+		cout << "Error: Unable to open file." << endl;
+		return 1;
+	}
+
+#ifdef DEBUG
+	cout << "Height Map: " << endl;
+	for ( int c = 0; c < height_map.size(); ++c ) {
+		for ( int r = 0; r < height_map[0].size(); ++r ) {
+			cout << height_map[c][r] << " ";
+		}
+		cout << endl;
+	}
+#endif
+
+	// Find minimum and maximum elevation
+	vector<int> elevations = flatten( height_map );
+	sort( elevations.begin(), elevations.end() );
+	int min_elevation = elevations.front();
+	int max_elevation = elevations.back();
+
+#ifdef DEBUG
+	cout << "Min Elevation: " << min_elevation << endl;
+	cout << "Max Elevation: " << max_elevation << endl;
+#endif
+
+	// Compute the shade of gray for each cell in the map
+	vector<vector<vector<int>>> grayscale_image;
+	for ( int c = 0; c < height_map.size(); ++c ) {
+		vector<vector<int>> temp_row;
+		for ( int r = 0; r < height_map[0].size(); ++r ) {
+			vector<int> rgb;
+			int gray_value = calculate_gray( height_map[c][r], min_elevation, max_elevation );
+			for ( int i = 0; i < 3; ++i ) {
+				rgb.push_back( gray_value );
+			}
+			temp_row.push_back( rgb );
+		}
+		grayscale_image.push_back( temp_row );
+	}
+
+#ifdef DEBUG
+	cout << "P3" << endl;
+	cout << columns << " " << rows << endl;
+	cout << "255" << endl;
+	for ( int c = 0; c < grayscale_image.size(); ++c ) {
+		for ( int r = 0; r < grayscale_image[0].size(); ++r ) {
+			cout << grayscale_image[c][r][0] << " " << grayscale_image[c][r][1] << " " << grayscale_image[c][r][2] << " ";
+		}
+	}
+#endif
+
+	// Produce the output file (PPM)
+	ofstream ppmOut("ppmOutput.ppm");
+	ppmOut << "P3" << endl;
+	ppmOut << columns << " " << rows << endl;
+	ppmOut << "255" << endl;
+	for ( int c = 0; c < grayscale_image.size(); ++c ) {
+		for ( int r = 0; r < grayscale_image[0].size(); ++r ) {
+			ppmOut << grayscale_image[c][r][0] << " " << grayscale_image[c][r][1] << " " << grayscale_image[c][r][2] << " ";
+		}
+	}
+
+	ppmOut.close();
+
+
+	// Completed successfully
+	return 0;
+}
+
+
+

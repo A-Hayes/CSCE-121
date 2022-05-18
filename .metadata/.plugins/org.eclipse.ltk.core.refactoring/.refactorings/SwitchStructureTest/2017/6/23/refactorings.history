@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SwitchStructureTest/SwithcStructureTest.cpp&apos; to &apos;SwitchStructureTest.cpp&apos;" description="Rename resource &apos;SwithcStructureTest.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SwithcStructureTest.cpp" name="SwitchStructureTest.cpp" stamp="1496798255174" updateReferences="true"/>
+</session>

@@ -1,0 +1,9 @@
+21:52:19 **** Incremental Build of configuration Debug for project MultiplicationTables ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o mult.o "..\\mult.cpp" 
+g++ -o MultiplicationTables.exe mult.o 
+C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file MultiplicationTables.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+
+21:52:20 Build Finished (took 443ms)
+

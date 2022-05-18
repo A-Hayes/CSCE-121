@@ -1,0 +1,1 @@
+SwitchStructureTest.o: ../SwitchStructureTest.cpp

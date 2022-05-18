@@ -1,0 +1,7 @@
+13:53:22 **** Incremental Build of configuration Debug for project MultiplicationTable ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o mult.o "..\\mult.cpp" 
+g++ -o MultiplicationTable.exe mult.o 
+
+13:53:24 Build Finished (took 1s.312ms)
+

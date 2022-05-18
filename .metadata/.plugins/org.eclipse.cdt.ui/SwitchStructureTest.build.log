@@ -1,0 +1,15 @@
+22:46:34 **** Incremental Build of configuration Debug for project SwitchStructureTest ****
+make all 
+Building file: ../SwitchStructureTest.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SwitchStructureTest.d" -MT"SwitchStructureTest.o" -o "SwitchStructureTest.o" "../SwitchStructureTest.cpp"
+Finished building: ../SwitchStructureTest.cpp
+ 
+Building target: SwitchStructureTest.exe
+Invoking: MinGW C++ Linker
+g++  -o "SwitchStructureTest.exe"  ./SwitchStructureTest.o   
+Finished building target: SwitchStructureTest.exe
+ 
+
+22:46:36 Build Finished (took 1s.371ms)
+

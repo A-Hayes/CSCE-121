@@ -1,0 +1,47 @@
+22:26:36 **** Incremental Build of configuration Debug for project MountainPath ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o MountainPathP1.o "..\\MountainPathP1.cpp" 
+..\MountainPathP1.cpp: In function 'std::vector<T> flatten(const std::vector<std::vector<T> >&)':
+..\MountainPathP1.cpp:30:14: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+  for ( const auto &v: orig ) {
+              ^
+..\MountainPathP1.cpp:30:23: warning: range-based 'for' loops only available with -std=c++11 or -std=gnu++11
+  for ( const auto &v: orig ) {
+                       ^
+..\MountainPathP1.cpp:31:28: error: request for member 'begin' in 'v', which is of non-class type 'const int'
+   ret.insert( ret.end(), v.begin(), v.end() );
+                            ^
+..\MountainPathP1.cpp:31:39: error: request for member 'end' in 'v', which is of non-class type 'const int'
+   ret.insert( ret.end(), v.begin(), v.end() );
+                                       ^
+..\MountainPathP1.cpp: In function 'int main()':
+..\MountainPathP1.cpp:109:26: error: 'stoi' is not a member of 'std'
+      temp_row.push_back( std::stoi (tokens[index] ) );
+                          ^
+..\MountainPathP1.cpp:125:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for ( int c = 0; c < height_map.size(); ++c ) {
+                     ^
+..\MountainPathP1.cpp:126:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for ( int r = 0; r < height_map[0].size(); ++r ) {
+                      ^
+..\MountainPathP1.cpp:146:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for ( int c = 0; c < height_map.size(); ++c ) {
+                     ^
+..\MountainPathP1.cpp:148:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for ( int r = 0; r < height_map[0].size(); ++r ) {
+                      ^
+..\MountainPathP1.cpp:163:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for ( int c = 0; c < grayscale_image.size(); ++c ) {
+                     ^
+..\MountainPathP1.cpp:164:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for ( int r = 0; r < grayscale_image[0].size(); ++r ) {
+                      ^
+..\MountainPathP1.cpp:175:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for ( int c = 0; c < grayscale_image.size(); ++c ) {
+                     ^
+..\MountainPathP1.cpp:176:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for ( int r = 0; r < grayscale_image[0].size(); ++r ) {
+                      ^
+
+22:26:37 Build Finished (took 289ms)
+

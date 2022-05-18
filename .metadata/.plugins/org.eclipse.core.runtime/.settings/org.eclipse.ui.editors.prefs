@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+overviewRuler_migration=migrated_3.1
+predarkestdark.AbstractTextEditor.Color.Background=41,41,41
+predarkestdark.currentLineColor=19,71,84
+spellingEngine=org.eclipse.jdt.internal.ui.text.spelling.DefaultSpellingEngine

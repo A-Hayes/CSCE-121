@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MountainPath/MountainPathP1&apos; to &apos;MountainPathP1.cpp&apos;" description="Rename resource &apos;MountainPathP1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MountainPathP1" name="MountainPathP1.cpp" stamp="1498271771198" updateReferences="true"/>
+</session>
